@@ -33,11 +33,11 @@ module morse_code(
     );
     
     wire clkd;
-    wire [3:0] decoder_output;
-    reg [3:0] digit0 = 4'hF;
-    reg [3:0] digit1 = 4'hF;
-    reg [3:0] digit2 = 4'hF;
-    reg [3:0] digit3 = 4'hF;
+    wire [7:0] decoder_output;
+    reg [7:0] digit0 = 8'hFF;
+    reg [7:0] digit1 = 8'hFF;
+    reg [7:0] digit2 = 8'hFF;
+    reg [7:0] digit3 = 8'hFF;
     reg [4:0] morse_enable = 5'b11111;
     reg [4:0] morse5 = 5'b00000;
     reg [3:0] morse4 = 4'b0000;
@@ -193,106 +193,8 @@ module morse_code(
     end
     
     decoder U2 (.morse_enable(morse_enable), .morse5(morse5), .morse4(morse4), .morse3(morse3), .morse2(morse2), .morse1(morse1), .decoder_output(decoder_output));
-//    reg [4:0] morse_inputs [4:0];
-//    always @(posedge clkd) begin
-//        morse_inputs[0] = {{(4){1'b0}}, morse1};
-//        morse_inputs[1] = {{(3){1'b0}}, morse2};
-//        morse_inputs[2] = {{(2){1'b0}}, morse3};
-//        morse_inputs[3] = {{(1){1'b0}}, morse4};
-//        morse_inputs[4] = {{(0){1'b0}}, morse5};
-//    end
-    
-//    always @(posedge clk) begin
-//        led <= 16'h0000;
-//        case (morse_enable)
-//            5'b11110: begin 
-//                if (morse1 == 0)
-//                    led[0] <= 1'b1;
-//                else
-//                    led[1:0] <= 2'b11;
-//            end
-//            5'b11101: begin 
-//                if (morse2[1] == 1'b0)
-//                    led[0] <= 1'b1; 
-//                else
-//                    led[1:0] <= 2'b11;
-//                if (morse2[0] == 1'b0)
-//                    led[3] <= 1'b1;
-//                else
-//                    led[4:3] <= 2'b11;
-//            end
-//            5'b11011: begin 
-//                if (morse3[2] == 1'b0)
-//                    led[0] <= 1'b1; 
-//                else
-//                    led[1:0] <= 2'b11;
-//                if (morse3[1] == 1'b0)
-//                    led[3] <= 1'b1;
-//                else
-//                    led[4:3] <= 2'b11;
-//                if (morse3[0] == 1'b0)
-//                    led[6] <= 1'b1;
-//                else
-//                    led[7:6] <= 2'b11;
-//            end
-//            5'b10111: begin 
-//                if (morse4[3] == 1'b0)
-//                    led[0] <= 1'b1; 
-//                else
-//                    led[1:0] <= 2'b11;
-//                if (morse4[2] == 1'b0)
-//                    led[3] <= 1'b1;
-//                else
-//                    led[4:3] <= 2'b11;
-//                if (morse4[1] == 1'b0)
-//                    led[6] <= 1'b1;
-//                else
-//                    led[7:6] <= 2'b11;
-//                if (morse4[0] == 1'b0)
-//                    led[9] <= 1'b1;
-//                else
-//                    led[10:9] <= 2'b11;
-//            end
-//            5'b01111: begin 
-//                if (morse5[4] == 1'b0)
-//                    led[0] <= 1'b1; 
-//                else
-//                    led[1:0] <= 2'b11;
-//                if (morse5[3] == 1'b0)
-//                    led[3] <= 1'b1;
-//                else
-//                    led[4:3] <= 2'b11;
-//                if (morse5[2] == 1'b0)
-//                    led[6] <= 1'b1;
-//                else
-//                    led[7:6] <= 2'b11;
-//                if (morse5[1] == 1'b0)
-//                    led[9] <= 1'b1;
-//                else
-//                    led[10:9] <= 2'b11;
-//                if (morse5[0] == 1'b0)
-//                    led[12] <= 1'b1;
-//                else
-//                    led[13:12] <= 2'b11;
-//            end
-//        endcase
-//    end
-    
+
     assign dp = 1'b1;       //Turn off decimal
-//    always @(posedge clk) begin
-//        if(btnU_edge) begin
-//            digit0 <= decoder_output; //recombined_data[3:0];     //Set the new value to our 4 sets of bit
-//            digit1 <= digit0; //recombined_data[7:4];
-//            digit2 <= digit1; //recombined_data[11:8];
-//            digit3 <= digit2; //recombined_data[15:12];
-//            morse_enable <= 5'b11111;
-//            morse5 <= 5'b00000;
-//            morse4 <= 4'b0000;
-//            morse3 <= 3'b000;
-//            morse2 <= 2'b00;
-//            morse1 <= 1'b0;
-//        end
-//    end
     
     always @(posedge clkd) begin       //Assign our digit_select
         digit_select = digit_select + 1;
@@ -307,7 +209,7 @@ module morse_code(
         endcase
     end
     
-    reg [3:0] current_digit;
+    reg [7:0] current_digit;
     always @(*) begin       //Get the current digit for the current display
         case(digit_select)
             2'b00: current_digit = digit0;
@@ -319,22 +221,43 @@ module morse_code(
     
     always @(current_digit) begin       //Assign to display
         case(current_digit)
-            4'h0: seg = 7'b1000000;
-            4'h1: seg = 7'b1111001;
-            4'h2: seg = 7'b0100100;
-            4'h3: seg = 7'b0110000;
-            4'h4: seg = 7'b0011001;
-            4'h5: seg = 7'b0010010;
-            4'h6: seg = 7'b0000010;
-            4'h7: seg = 7'b1111000;
-            4'h8: seg = 7'b0000000;
-            4'h9: seg = 7'b0010000;
-            4'hA: seg = 7'b0001000;
-            4'hB: seg = 7'b0000011;
-            4'hC: seg = 7'b1000110;
-            4'hD: seg = 7'b0100001;
-            4'hE: seg = 7'b0001100;
-            4'hF: seg = 7'b1111111; //Space
+            8'h00: seg = 7'b1000000;
+            8'h01: seg = 7'b1111001;
+            8'h02: seg = 7'b0100100;
+            8'h03: seg = 7'b0110000;
+            8'h04: seg = 7'b0011001;
+            8'h05: seg = 7'b0010010;
+            8'h06: seg = 7'b0000010;
+            8'h07: seg = 7'b1111000;
+            8'h08: seg = 7'b0000000;
+            8'h09: seg = 7'b0011000;
+            8'h0A: seg = 7'b0001000;
+            8'h0B: seg = 7'b0000011;
+            8'h0C: seg = 7'b1000110;
+            8'h0D: seg = 7'b0100001;
+            8'h0E: seg = 7'b0000110;
+            8'h0F: seg = 7'b0001110; 
+            8'h10: seg = 7'b0010000; //g
+            8'h11: seg = 7'b0001001; //H 
+            8'h12: seg = 7'b1111001; //I
+            8'h13: seg = 7'b1110001; //J
+            8'h14: seg = 7'b1111111; //space - K 
+            8'h15: seg = 7'b1000111; //L
+            8'h16: seg = 7'b1111111; //space - M
+            8'h17: seg = 7'b0101011; //n
+            8'h18: seg = 7'b1000000; //o 
+            8'h19: seg = 7'b0001100; //P
+            8'h1A: seg = 7'b1111111; //space - Q
+            8'h1B: seg = 7'b0101111; //R
+            8'h1C: seg = 7'b0010010; //S
+            8'h1D: seg = 7'b1111111; //space - T
+            8'h1E: seg = 7'b1000001; //U
+            8'h1F: seg = 7'b1100011; //V
+            8'h20: seg = 7'b1111111; //space - W
+            8'h21: seg = 7'b1111111; //space - X
+            8'h22: seg = 7'b0010001; //Y
+            8'h23: seg = 7'b0100100; //Z
+            
             default: seg = 7'b1111111;
         endcase
     end

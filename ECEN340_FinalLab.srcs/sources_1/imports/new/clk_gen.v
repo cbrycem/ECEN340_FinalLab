@@ -36,6 +36,6 @@ module clk_gen(
             
     end 
     
-    assign clk_div = refresh_counter[0];
+    assign clk_div = refresh_counter[16];
     
 endmodule

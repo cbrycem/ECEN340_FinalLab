@@ -27,7 +27,7 @@ module decoder(
     input [2:0] morse3,
     input [1:0] morse2,
     input morse1,
-    output reg [3:0] decoder_output
+    output reg [7:0] decoder_output
     );
     
     parameter n = 5;
@@ -37,7 +37,7 @@ module decoder(
     localparam LEN4 = 4;
     localparam LEN5 = 5;
     
-    wire [3:0] morse_out [4:0];
+    wire [7:0] morse_out [4:0];
     
     wire [4:0] morse_inputs [4:0];
     
@@ -65,7 +65,7 @@ module decoder(
             5'b11011: decoder_output = morse_out[2];
             5'b10111: decoder_output = morse_out[3];
             5'b01111: decoder_output = morse_out[4];
-            default: decoder_output = 4'b1111;
+            default: decoder_output = 8'b11111111;
         endcase
     end
 endmodule
