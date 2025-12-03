@@ -273,5 +273,12 @@ module morse_code(
         endcase
     end
     
+    //Output assignments fro VGA port
+//    always @(*) begin
+//        curr_morse_bits = 5'b00000;
+//        if (morse_enable != 5'b11111) begin
+//            if (morse_enable == 5'b11110) curr_morse_bits = {4'b0000, morse1}; //len = 1 at LSB
+            
+    
     
 endmodule
