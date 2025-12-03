@@ -29,7 +29,13 @@ module morse_code(
     output reg [6:0] seg,
     output dp,
     output reg [3:0] an,
-    output reg [15:0] led
+    output reg [15:0] led,
+    
+    //Outputs for the VGA
+    output reg [4:0] curr_morse_bits,
+    output reg [2:0] curr_morse_len,
+    output sent_pulse,
+    output [7:0] decoded_out
     );
     
     wire clkd;
@@ -71,8 +77,12 @@ module morse_code(
     assign btnD_edge = btnD_db & ~btnD_prev;
     assign btnU_edge = btnU_db & ~btnU_prev;
     
+    reg sent_pulse_r;
+    assign sent_pulse = sent_pulse_r;
+    
     always @(posedge clk) begin
     
+        sent_pulse_r <= 1'b0;
         if (btnD_edge) begin
             // clear
             morse_enable <= 5'b11111;
@@ -114,6 +124,7 @@ module morse_code(
             morse3 <= 3'b000;
             morse2 <= 2'b00;
             morse1 <= 1'b0;
+            sent_pulse_r <= 1'b1;
         end
         
         led <= 16'h0000;
@@ -221,44 +232,44 @@ module morse_code(
     
     always @(current_digit) begin       //Assign to display
         case(current_digit)
-            8'h00: seg = 7'b1000000;
-            8'h01: seg = 7'b1111001;
-            8'h02: seg = 7'b0100100;
-            8'h03: seg = 7'b0110000;
-            8'h04: seg = 7'b0011001;
-            8'h05: seg = 7'b0010010;
-            8'h06: seg = 7'b0000010;
-            8'h07: seg = 7'b1111000;
-            8'h08: seg = 7'b0000000;
-            8'h09: seg = 7'b0011000;
-            8'h0A: seg = 7'b0001000;
-            8'h0B: seg = 7'b0000011;
-            8'h0C: seg = 7'b1000110;
-            8'h0D: seg = 7'b0100001;
-            8'h0E: seg = 7'b0000110;
-            8'h0F: seg = 7'b0001110; 
-            8'h10: seg = 7'b0010000; //g
+            8'h00: seg = 7'b1000000; //0
+            8'h01: seg = 7'b1111001; //1
+            8'h02: seg = 7'b0100100; //2
+            8'h03: seg = 7'b0110000; //3
+            8'h04: seg = 7'b0011001; //4
+            8'h05: seg = 7'b0010010; //5
+            8'h06: seg = 7'b0000010; //6
+            8'h07: seg = 7'b1111000; //7
+            8'h08: seg = 7'b0000000; //8
+            8'h09: seg = 7'b0010000; //9
+            8'h0A: seg = 7'b0001000; //A
+            8'h0B: seg = 7'b0000011; //B
+            8'h0C: seg = 7'b1000110; //C
+            8'h0D: seg = 7'b0100001; //D
+            8'h0E: seg = 7'b0000110; //E
+            8'h0F: seg = 7'b0001110; //F
+            8'h10: seg = 7'b1000010; //g
             8'h11: seg = 7'b0001001; //H 
             8'h12: seg = 7'b1111001; //I
             8'h13: seg = 7'b1110001; //J
-            8'h14: seg = 7'b1111111; //space - K 
+            8'h14: seg = 7'b0001010; //K 
             8'h15: seg = 7'b1000111; //L
-            8'h16: seg = 7'b1111111; //space - M
+            8'h16: seg = 7'b0101010; //M
             8'h17: seg = 7'b0101011; //n
             8'h18: seg = 7'b1000000; //o 
             8'h19: seg = 7'b0001100; //P
-            8'h1A: seg = 7'b1111111; //space - Q
+            8'h1A: seg = 7'b0011000; //Q
             8'h1B: seg = 7'b0101111; //R
             8'h1C: seg = 7'b0010010; //S
-            8'h1D: seg = 7'b1111111; //space - T
+            8'h1D: seg = 7'b0000111; //T
             8'h1E: seg = 7'b1000001; //U
             8'h1F: seg = 7'b1100011; //V
-            8'h20: seg = 7'b1111111; //space - W
-            8'h21: seg = 7'b1111111; //space - X
+            8'h20: seg = 7'b0010101; //W
+            8'h21: seg = 7'b1101011; //X
             8'h22: seg = 7'b0010001; //Y
             8'h23: seg = 7'b0100100; //Z
             
-            default: seg = 7'b1111111;
+            default: seg = 7'b1111111; //default case
         endcase
     end
     
