@@ -116,6 +116,15 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PSRCDIR/sources_1/imports/new/morse_code.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Lab7/Lab7.srcs/sources_1/new/morse_code.v"/>
+          <Attr Name="ImportTime" Val="1763230228"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/imports/new/translator.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../Lab7/Lab7.srcs/sources_1/new/translator.v"/>
@@ -125,10 +134,8 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/new/morse_code.v">
+      <File Path="$PSRCDIR/sources_1/new/vga_sync.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../Lab7/Lab7.srcs/sources_1/new/morse_code.v"/>
-          <Attr Name="ImportTime" Val="1763230228"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -144,17 +151,9 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/new/vga_sync.v">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="morse_code"/>
+        <Option Name="TopModule" Val="morse_with_vga"/>
       </Config>
     </FileSet>
     <FileSet Name="constrs_1" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1" RelGenDir="$PGENDIR/constrs_1">

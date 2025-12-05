@@ -24,9 +24,9 @@ eval( EAInclude(ISEJScriptLib) );
 
 
 // pre-commands:
-ISETouchFile( "init_design", "begin" );
+ISETouchFile( "write_bitstream", "begin" );
 ISEStep( "vivado",
-         "-log morse_code.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source morse_code.tcl -notrace" );
+         "-log morse_with_vga.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source morse_with_vga.tcl -notrace" );
 
 
 

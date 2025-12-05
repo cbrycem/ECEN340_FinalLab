@@ -35,10 +35,17 @@ module morse_code(
     output reg [4:0] curr_morse_bits,
     output reg [2:0] curr_morse_len,
     output sent_pulse,
-    output [7:0] decoded_out
+    output [7:0] decoded_out,
+    output clkd
+    
+//    output [3:0] vgaRed,
+//    output [3:0] vgaGreen,
+//    output [3:0] vgaBlue,
+//    output Hsync,
+//    output Vsync
     );
     
-    wire clkd;
+    //wire clkd;
     wire [7:0] decoder_output;
     reg [7:0] digit0 = 8'hFF;
     reg [7:0] digit1 = 8'hFF;

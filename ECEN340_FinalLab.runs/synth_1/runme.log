@@ -1,6 +1,6 @@
 
 *** Running vivado
-    with args -log morse_code.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source morse_code.tcl
+    with args -log morse_with_vga.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source morse_with_vga.tcl
 
 
 
@@ -8,27 +8,29 @@
   **** SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
   **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
   **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-  **** Start of session at: Mon Dec  1 11:04:21 2025
+  **** Start of session at: Fri Dec  5 10:36:57 2025
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 
-source morse_code.tcl -notrace
+source morse_with_vga.tcl -notrace
 Command: read_checkpoint -auto_incremental -incremental C:/Users/cbrycem/Desktop/Vivado/Lab0/ECEN340_FinalLab/ECEN340_FinalLab.srcs/utils_1/imports/synth_1/morse_code_tb.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/cbrycem/Desktop/Vivado/Lab0/ECEN340_FinalLab/ECEN340_FinalLab.srcs/utils_1/imports/synth_1/morse_code_tb.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
-Command: synth_design -top morse_code -part xc7a35tcpg236-1
+Command: synth_design -top morse_with_vga -part xc7a35tcpg236-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+[libprotobuf ERROR C:\protobuf-3.21.12\protobuf\src\google\protobuf\wire_format_lite.cc:618] String field 'HDMetricDBGroup.name' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 2744
+INFO: [Synth 8-7075] Helper process launched with PID 25552
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1028.020 ; gain = 467.359
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1028.477 ; gain = 468.039
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'morse_with_vga' [C:/Users/cbrycem/Desktop/Vivado/Lab0/ECEN340_FinalLab/ECEN340_FinalLab.srcs/sources_1/new/vga_sync.v:679]
 INFO: [Synth 8-6157] synthesizing module 'morse_code' [C:/Users/cbrycem/Desktop/Vivado/Lab0/ECEN340_FinalLab/ECEN340_FinalLab.srcs/sources_1/imports/new/morse_code.v:23]
 INFO: [Synth 8-6157] synthesizing module 'debounce' [C:/Users/cbrycem/Desktop/Vivado/Lab0/ECEN340_FinalLab/ECEN340_FinalLab.srcs/sources_1/imports/new/debounce.v:23]
 	Parameter WIDTH bound to: 4 - type: integer 
@@ -36,61 +38,90 @@ INFO: [Synth 8-6157] synthesizing module 'debounce' [C:/Users/cbrycem/Desktop/Vi
 INFO: [Synth 8-6155] done synthesizing module 'debounce' (0#1) [C:/Users/cbrycem/Desktop/Vivado/Lab0/ECEN340_FinalLab/ECEN340_FinalLab.srcs/sources_1/imports/new/debounce.v:23]
 INFO: [Synth 8-6157] synthesizing module 'clk_gen' [C:/Users/cbrycem/Desktop/Vivado/Lab0/ECEN340_FinalLab/ECEN340_FinalLab.srcs/sources_1/imports/new/clk_gen.v:23]
 INFO: [Synth 8-6155] done synthesizing module 'clk_gen' (0#1) [C:/Users/cbrycem/Desktop/Vivado/Lab0/ECEN340_FinalLab/ECEN340_FinalLab.srcs/sources_1/imports/new/clk_gen.v:23]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/cbrycem/Desktop/Vivado/Lab0/ECEN340_FinalLab/ECEN340_FinalLab.srcs/sources_1/imports/new/morse_code.v:88]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/cbrycem/Desktop/Vivado/Lab0/ECEN340_FinalLab/ECEN340_FinalLab.srcs/sources_1/imports/new/morse_code.v:98]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/cbrycem/Desktop/Vivado/Lab0/ECEN340_FinalLab/ECEN340_FinalLab.srcs/sources_1/imports/new/morse_code.v:120]
+WARNING: [Synth 8-7071] port 'clk_out' of module 'clk_gen' is unconnected for instance 'U1' [C:/Users/cbrycem/Desktop/Vivado/Lab0/ECEN340_FinalLab/ECEN340_FinalLab.srcs/sources_1/imports/new/morse_code.v:70]
+WARNING: [Synth 8-7023] instance 'U1' of module 'clk_gen' has 3 connections declared, but only 2 given [C:/Users/cbrycem/Desktop/Vivado/Lab0/ECEN340_FinalLab/ECEN340_FinalLab.srcs/sources_1/imports/new/morse_code.v:70]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/cbrycem/Desktop/Vivado/Lab0/ECEN340_FinalLab/ECEN340_FinalLab.srcs/sources_1/imports/new/morse_code.v:105]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/cbrycem/Desktop/Vivado/Lab0/ECEN340_FinalLab/ECEN340_FinalLab.srcs/sources_1/imports/new/morse_code.v:115]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/cbrycem/Desktop/Vivado/Lab0/ECEN340_FinalLab/ECEN340_FinalLab.srcs/sources_1/imports/new/morse_code.v:138]
 INFO: [Synth 8-6157] synthesizing module 'decoder' [C:/Users/cbrycem/Desktop/Vivado/Lab0/ECEN340_FinalLab/ECEN340_FinalLab.srcs/sources_1/imports/new/decoder.v:23]
 INFO: [Synth 8-6157] synthesizing module 'translator' [C:/Users/cbrycem/Desktop/Vivado/Lab0/ECEN340_FinalLab/ECEN340_FinalLab.srcs/sources_1/imports/new/translator.v:23]
 INFO: [Synth 8-6155] done synthesizing module 'translator' (0#1) [C:/Users/cbrycem/Desktop/Vivado/Lab0/ECEN340_FinalLab/ECEN340_FinalLab.srcs/sources_1/imports/new/translator.v:23]
 WARNING: [Synth 8-693] zero replication count - replication ignored [C:/Users/cbrycem/Desktop/Vivado/Lab0/ECEN340_FinalLab/ECEN340_FinalLab.srcs/sources_1/imports/new/decoder.v:48]
 INFO: [Synth 8-6155] done synthesizing module 'decoder' (0#1) [C:/Users/cbrycem/Desktop/Vivado/Lab0/ECEN340_FinalLab/ECEN340_FinalLab.srcs/sources_1/imports/new/decoder.v:23]
 INFO: [Synth 8-6155] done synthesizing module 'morse_code' (0#1) [C:/Users/cbrycem/Desktop/Vivado/Lab0/ECEN340_FinalLab/ECEN340_FinalLab.srcs/sources_1/imports/new/morse_code.v:23]
-WARNING: [Synth 8-3917] design morse_code has port dp driven by constant 1
+INFO: [Synth 8-6157] synthesizing module 'vga_sync' [C:/Users/cbrycem/Desktop/Vivado/Lab0/ECEN340_FinalLab/ECEN340_FinalLab.srcs/sources_1/new/vga_sync.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'vga_sync' (0#1) [C:/Users/cbrycem/Desktop/Vivado/Lab0/ECEN340_FinalLab/ECEN340_FinalLab.srcs/sources_1/new/vga_sync.v:23]
+INFO: [Synth 8-6157] synthesizing module 'vga_text_renderer' [C:/Users/cbrycem/Desktop/Vivado/Lab0/ECEN340_FinalLab/ECEN340_FinalLab.srcs/sources_1/new/vga_sync.v:497]
+INFO: [Synth 8-6157] synthesizing module 'font8x8_rom' [C:/Users/cbrycem/Desktop/Vivado/Lab0/ECEN340_FinalLab/ECEN340_FinalLab.srcs/sources_1/new/vga_sync.v:88]
+INFO: [Synth 8-6155] done synthesizing module 'font8x8_rom' (0#1) [C:/Users/cbrycem/Desktop/Vivado/Lab0/ECEN340_FinalLab/ECEN340_FinalLab.srcs/sources_1/new/vga_sync.v:88]
+INFO: [Synth 8-6155] done synthesizing module 'vga_text_renderer' (0#1) [C:/Users/cbrycem/Desktop/Vivado/Lab0/ECEN340_FinalLab/ECEN340_FinalLab.srcs/sources_1/new/vga_sync.v:497]
+INFO: [Synth 8-6155] done synthesizing module 'morse_with_vga' (0#1) [C:/Users/cbrycem/Desktop/Vivado/Lab0/ECEN340_FinalLab/ECEN340_FinalLab.srcs/sources_1/new/vga_sync.v:679]
+WARNING: [Synth 8-3848] Net curr_morse_bits in module/entity morse_code does not have driver. [C:/Users/cbrycem/Desktop/Vivado/Lab0/ECEN340_FinalLab/ECEN340_FinalLab.srcs/sources_1/imports/new/morse_code.v:35]
+WARNING: [Synth 8-3848] Net curr_morse_len in module/entity morse_code does not have driver. [C:/Users/cbrycem/Desktop/Vivado/Lab0/ECEN340_FinalLab/ECEN340_FinalLab.srcs/sources_1/imports/new/morse_code.v:36]
+WARNING: [Synth 8-3848] Net decoded_out in module/entity morse_code does not have driver. [C:/Users/cbrycem/Desktop/Vivado/Lab0/ECEN340_FinalLab/ECEN340_FinalLab.srcs/sources_1/imports/new/morse_code.v:38]
+WARNING: [Synth 8-7129] Port pclk in module vga_text_renderer is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sent_pulse in module vga_text_renderer is either unconnected or has no load
+WARNING: [Synth 8-7129] Port curr_morse_bits[4] in module morse_code is either unconnected or has no load
+WARNING: [Synth 8-7129] Port curr_morse_bits[3] in module morse_code is either unconnected or has no load
+WARNING: [Synth 8-7129] Port curr_morse_bits[2] in module morse_code is either unconnected or has no load
+WARNING: [Synth 8-7129] Port curr_morse_bits[1] in module morse_code is either unconnected or has no load
+WARNING: [Synth 8-7129] Port curr_morse_bits[0] in module morse_code is either unconnected or has no load
+WARNING: [Synth 8-7129] Port curr_morse_len[2] in module morse_code is either unconnected or has no load
+WARNING: [Synth 8-7129] Port curr_morse_len[1] in module morse_code is either unconnected or has no load
+WARNING: [Synth 8-7129] Port curr_morse_len[0] in module morse_code is either unconnected or has no load
+WARNING: [Synth 8-7129] Port decoded_out[7] in module morse_code is either unconnected or has no load
+WARNING: [Synth 8-7129] Port decoded_out[6] in module morse_code is either unconnected or has no load
+WARNING: [Synth 8-7129] Port decoded_out[5] in module morse_code is either unconnected or has no load
+WARNING: [Synth 8-7129] Port decoded_out[4] in module morse_code is either unconnected or has no load
+WARNING: [Synth 8-7129] Port decoded_out[3] in module morse_code is either unconnected or has no load
+WARNING: [Synth 8-7129] Port decoded_out[2] in module morse_code is either unconnected or has no load
+WARNING: [Synth 8-7129] Port decoded_out[1] in module morse_code is either unconnected or has no load
+WARNING: [Synth 8-7129] Port decoded_out[0] in module morse_code is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1136.953 ; gain = 576.293
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1139.977 ; gain = 579.539
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1136.953 ; gain = 576.293
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1139.977 ; gain = 579.539
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1136.953 ; gain = 576.293
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1139.977 ; gain = 579.539
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1136.953 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1139.977 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
 Parsing XDC File [C:/Users/cbrycem/Desktop/Vivado/Lab0/ECEN340_FinalLab/ECEN340_FinalLab.srcs/constrs_1/imports/Downloads/Basys3_Master.xdc]
 Finished Parsing XDC File [C:/Users/cbrycem/Desktop/Vivado/Lab0/ECEN340_FinalLab/ECEN340_FinalLab.srcs/constrs_1/imports/Downloads/Basys3_Master.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/cbrycem/Desktop/Vivado/Lab0/ECEN340_FinalLab/ECEN340_FinalLab.srcs/constrs_1/imports/Downloads/Basys3_Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/morse_code_propImpl.xdc].
-Resolution: To avoid this warning, move constraints listed in [.Xil/morse_code_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/cbrycem/Desktop/Vivado/Lab0/ECEN340_FinalLab/ECEN340_FinalLab.srcs/constrs_1/imports/Downloads/Basys3_Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/morse_with_vga_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/morse_with_vga_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1208.539 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1228.469 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1208.539 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1228.469 ; gain = 0.000
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1208.539 ; gain = 647.879
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1228.469 ; gain = 668.031
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1208.539 ; gain = 647.879
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1228.469 ; gain = 668.031
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1208.539 ; gain = 647.879
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1228.469 ; gain = 668.031
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'morse_enable_reg' in module 'morse_code'
 ---------------------------------------------------------------------------------------------------
@@ -105,33 +136,47 @@ INFO: [Synth 8-802] inferred FSM for state register 'morse_enable_reg' in module
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'morse_enable_reg' using encoding 'sequential' in module 'morse_code'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1208.539 ; gain = 647.879
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1228.469 ; gain = 668.031
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input    2 Bit       Adders := 1     
+	   2 Input   32 Bit       Adders := 1     
+	   3 Input   32 Bit       Adders := 1     
+	   2 Input   11 Bit       Adders := 1     
+	   2 Input   10 Bit       Adders := 3     
+	   2 Input    8 Bit       Adders := 2     
+	   2 Input    2 Bit       Adders := 2     
 +---Registers : 
 	               16 Bit    Registers := 1     
+	               11 Bit    Registers := 1     
+	               10 Bit    Registers := 3     
 	                5 Bit    Registers := 1     
 	                4 Bit    Registers := 4     
 	                3 Bit    Registers := 1     
-	                2 Bit    Registers := 2     
-	                1 Bit    Registers := 5     
+	                2 Bit    Registers := 3     
+	                1 Bit    Registers := 10    
 +---Muxes : 
 	   2 Input   16 Bit        Muxes := 9     
 	   6 Input   16 Bit        Muxes := 1     
-	   2 Input    7 Bit        Muxes := 1     
-	   2 Input    5 Bit        Muxes := 1     
+	   2 Input   10 Bit        Muxes := 3     
+	   2 Input    8 Bit        Muxes := 4     
+	  10 Input    8 Bit        Muxes := 1     
+	   2 Input    7 Bit        Muxes := 2     
+	   8 Input    7 Bit        Muxes := 6     
+	   3 Input    6 Bit        Muxes := 1     
+	   8 Input    6 Bit        Muxes := 1     
+	   4 Input    6 Bit        Muxes := 1     
+	   2 Input    5 Bit        Muxes := 3     
 	   6 Input    5 Bit        Muxes := 1     
-	   4 Input    4 Bit        Muxes := 1     
-	   2 Input    4 Bit        Muxes := 1     
-	   2 Input    3 Bit        Muxes := 1     
+	   4 Input    4 Bit        Muxes := 2     
+	   2 Input    4 Bit        Muxes := 5     
+	   2 Input    3 Bit        Muxes := 2     
 	   5 Input    3 Bit        Muxes := 1     
 	   2 Input    2 Bit        Muxes := 1     
-	   2 Input    1 Bit        Muxes := 8     
+	   2 Input    1 Bit        Muxes := 10    
 	   6 Input    1 Bit        Muxes := 6     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -149,9 +194,26 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
-WARNING: [Synth 8-3917] design morse_code has port dp driven by constant 1
+WARNING: [Synth 8-7129] Port pclk in module vga_text_renderer is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sent_pulse in module vga_text_renderer is either unconnected or has no load
+WARNING: [Synth 8-7129] Port curr_morse_bits[4] in module morse_code is either unconnected or has no load
+WARNING: [Synth 8-7129] Port curr_morse_bits[3] in module morse_code is either unconnected or has no load
+WARNING: [Synth 8-7129] Port curr_morse_bits[2] in module morse_code is either unconnected or has no load
+WARNING: [Synth 8-7129] Port curr_morse_bits[1] in module morse_code is either unconnected or has no load
+WARNING: [Synth 8-7129] Port curr_morse_bits[0] in module morse_code is either unconnected or has no load
+WARNING: [Synth 8-7129] Port curr_morse_len[2] in module morse_code is either unconnected or has no load
+WARNING: [Synth 8-7129] Port curr_morse_len[1] in module morse_code is either unconnected or has no load
+WARNING: [Synth 8-7129] Port curr_morse_len[0] in module morse_code is either unconnected or has no load
+WARNING: [Synth 8-7129] Port decoded_out[7] in module morse_code is either unconnected or has no load
+WARNING: [Synth 8-7129] Port decoded_out[6] in module morse_code is either unconnected or has no load
+WARNING: [Synth 8-7129] Port decoded_out[5] in module morse_code is either unconnected or has no load
+WARNING: [Synth 8-7129] Port decoded_out[4] in module morse_code is either unconnected or has no load
+WARNING: [Synth 8-7129] Port decoded_out[3] in module morse_code is either unconnected or has no load
+WARNING: [Synth 8-7129] Port decoded_out[2] in module morse_code is either unconnected or has no load
+WARNING: [Synth 8-7129] Port decoded_out[1] in module morse_code is either unconnected or has no load
+WARNING: [Synth 8-7129] Port decoded_out[0] in module morse_code is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1208.539 ; gain = 647.879
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1228.469 ; gain = 668.031
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -178,19 +240,19 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1321.020 ; gain = 760.359
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1331.023 ; gain = 770.586
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1354.625 ; gain = 793.965
+Finished Timing Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1364.676 ; gain = 804.238
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1356.234 ; gain = 795.574
+Finished Technology Mapping : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1366.211 ; gain = 805.773
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -208,37 +270,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1549.109 ; gain = 988.449
+Finished IO Insertion : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1558.621 ; gain = 998.184
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1549.109 ; gain = 988.449
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1558.621 ; gain = 998.184
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1549.109 ; gain = 988.449
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1558.621 ; gain = 998.184
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1549.109 ; gain = 988.449
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1558.621 ; gain = 998.184
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1549.109 ; gain = 988.449
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1558.621 ; gain = 998.184
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1549.109 ; gain = 988.449
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1558.621 ; gain = 998.184
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -269,41 +331,41 @@ Report Cell Usage:
 +------+-------+------+
 |      |Cell   |Count |
 +------+-------+------+
-|1     |BUFG   |     1|
+|1     |BUFG   |     2|
 |2     |CARRY4 |    29|
-|3     |LUT1   |     6|
-|4     |LUT2   |    17|
-|5     |LUT3   |    15|
-|6     |LUT4   |    17|
-|7     |LUT5   |    17|
-|8     |LUT6   |    37|
+|3     |LUT1   |     8|
+|4     |LUT2   |    30|
+|5     |LUT3   |    24|
+|6     |LUT4   |    26|
+|7     |LUT5   |    39|
+|8     |LUT6   |    65|
 |9     |SRL16E |     8|
-|10    |FDRE   |   147|
+|10    |FDRE   |   189|
 |11    |IBUF   |     5|
-|12    |OBUF   |    28|
+|12    |OBUF   |    42|
 +------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1549.109 ; gain = 988.449
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1558.621 ; gain = 998.184
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 2 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 1549.109 ; gain = 916.863
-Synthesis Optimization Complete : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1549.109 ; gain = 988.449
+Synthesis finished with 0 errors, 0 critical warnings and 19 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:10 ; elapsed = 00:00:15 . Memory (MB): peak = 1558.621 ; gain = 909.691
+Synthesis Optimization Complete : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1558.621 ; gain = 998.184
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1558.305 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1558.621 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 29 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1561.988 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1561.312 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete | Checksum: 85441f5c
+Synth Design complete | Checksum: 4fd88c21
 INFO: [Common 17-83] Releasing license: Synthesis
-36 Infos, 4 Warnings, 0 Critical Warnings and 0 Errors encountered.
+44 Infos, 43 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 1561.988 ; gain = 1192.309
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1561.988 ; gain = 0.000
-INFO: [Common 17-1381] The checkpoint 'C:/Users/cbrycem/Desktop/Vivado/Lab0/ECEN340_FinalLab/ECEN340_FinalLab.runs/synth_1/morse_code.dcp' has been generated.
-INFO: [Vivado 12-24828] Executing command : report_utilization -file morse_code_utilization_synth.rpt -pb morse_code_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Dec  1 11:04:42 2025...
+synth_design: Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1561.312 ; gain = 1190.379
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1561.312 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/cbrycem/Desktop/Vivado/Lab0/ECEN340_FinalLab/ECEN340_FinalLab.runs/synth_1/morse_with_vga.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file morse_with_vga_utilization_synth.rpt -pb morse_with_vga_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Fri Dec  5 10:37:19 2025...

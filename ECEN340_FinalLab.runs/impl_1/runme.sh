@@ -42,7 +42,7 @@ EAStep()
 }
 
 # pre-commands:
-/bin/touch .init_design.begin.rst
-EAStep vivado -log morse_code.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source morse_code.tcl -notrace
+/bin/touch .write_bitstream.begin.rst
+EAStep vivado -log morse_with_vga.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source morse_with_vga.tcl -notrace
 
 

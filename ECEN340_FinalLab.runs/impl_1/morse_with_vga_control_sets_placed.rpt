@@ -1,0 +1,89 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Fri Dec  5 10:37:50 2025
+| Host         : 25STC151L02 running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file morse_with_vga_control_sets_placed.rpt
+| Design       : morse_with_vga
+| Device       : xc7a35t
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    11 |
+|    Minimum number of control sets                        |    11 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    32 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    11 |
+| >= 0 to < 4        |     0 |
+| >= 4 to < 6        |     2 |
+| >= 6 to < 8        |     1 |
+| >= 8 to < 10       |     1 |
+| >= 10 to < 12      |     1 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     0 |
+| >= 16              |     6 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              83 |           37 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              90 |           26 |
+| Yes          | No                    | No                     |              10 |            2 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |               9 |            2 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------+-----------------------------------------------------+---------------------------+------------------+----------------+--------------+
+|  Clock Signal  |                    Enable Signal                    |      Set/Reset Signal     | Slice Load Count | Bel Load Count | Bels / Slice |
++----------------+-----------------------------------------------------+---------------------------+------------------+----------------+--------------+
+|  clk_IBUF_BUFG | mcode/db_inst/FSM_sequential_morse_enable_reg[1][0] | mcode/db_inst/SR[0]       |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG | mcode/db_inst/E[0]                                  | mcode/db_inst/SR[0]       |                1 |              5 |         5.00 |
+|  clk_IBUF_BUFG |                                                     | mcode/db_inst/SR[0]       |                2 |              6 |         3.00 |
+|  clk_IBUF_BUFG | mcode/db_inst/digit0                                |                           |                1 |              8 |         8.00 |
+|  pclk_BUFG     | sync/vcount                                         |                           |                2 |             10 |         5.00 |
+|  clk_IBUF_BUFG |                                                     | mcode/db_inst/clean16_out |                6 |             21 |         3.50 |
+|  clk_IBUF_BUFG |                                                     | mcode/db_inst/clean13_out |                6 |             21 |         3.50 |
+|  clk_IBUF_BUFG |                                                     | mcode/db_inst/clean10_out |                6 |             21 |         3.50 |
+|  clk_IBUF_BUFG |                                                     | mcode/db_inst/clean1      |                6 |             21 |         3.50 |
+|  pclk_BUFG     |                                                     |                           |               15 |             37 |         2.47 |
+|  clk_IBUF_BUFG |                                                     |                           |               22 |             46 |         2.09 |
++----------------+-----------------------------------------------------+---------------------------+------------------+----------------+--------------+
+
+

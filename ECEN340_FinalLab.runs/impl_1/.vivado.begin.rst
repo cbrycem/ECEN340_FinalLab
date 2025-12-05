@@ -1,70 +1,25 @@
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="cbrycem" Host="25STC151L02" Pid="20216" HostCore="20" HostMemory="033775415296">
+    <Process Command="vivado.bat" Owner="cbrycem" Host="25STC151L02" Pid="9048" HostCore="20" HostMemory="033775415296">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="cbrycem" Host="25STC151L02" Pid="12520" HostCore="20" HostMemory="033775415296">
+    <Process Command="vivado.bat" Owner="cbrycem" Host="25STC151L02" Pid="25540" HostCore="20" HostMemory="033775415296">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="cbrycem" Host="25STC151L02" Pid="5472" HostCore="20" HostMemory="033775415296">
+    <Process Command="vivado.bat" Owner="cbrycem" Host="25STC151L02" Pid="21092" HostCore="20" HostMemory="033775415296">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="cbrycem" Host="25STC151L02" Pid="24412" HostCore="20" HostMemory="033775415296">
+    <Process Command="vivado.bat" Owner="cbrycem" Host="25STC151L02" Pid="27404" HostCore="20" HostMemory="033775415296">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="cbrycem" Host="25STC151L02" Pid="28724" HostCore="20" HostMemory="033775415296">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="cbrycem" Host="25STC151L02" Pid="23612" HostCore="20" HostMemory="033775415296">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="cbrycem" Host="25STC151L02" Pid="23196" HostCore="20" HostMemory="033775415296">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="cbrycem" Host="25STC151L02" Pid="7368" HostCore="20" HostMemory="033775415296">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="cbrycem" Host="25STC151L02" Pid="24196" HostCore="20" HostMemory="033775415296">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="cbrycem" Host="25STC151L02" Pid="8032" HostCore="20" HostMemory="033775415296">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="cbrycem" Host="25STC151L02" Pid="9504" HostCore="20" HostMemory="033775415296">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="cbrycem" Host="25STC151L02" Pid="1464" HostCore="20" HostMemory="033775415296">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="cbrycem" Host="25STC151L02" Pid="29164" HostCore="20" HostMemory="033775415296">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="cbrycem" Host="25STC151L02" Pid="5728" HostCore="20" HostMemory="033775415296">
+    <Process Command="vivado.bat" Owner="cbrycem" Host="25STC151L02" Pid="27124" HostCore="20" HostMemory="033775415296">
     </Process>
 </ProcessHandle>
